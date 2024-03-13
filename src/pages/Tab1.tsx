@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonAlert, IonButton, IonActionSheet} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
@@ -24,6 +24,41 @@ const Tab1: React.FC = () => {
       </IonCardHeader>
 
       <IonCardContent>Jm is my name, late game is my game</IonCardContent>
+      <IonButton id="present-alert">Push me</IonButton>
+      <IonAlert
+        trigger="present-alert"
+        header="Hi"
+        subHeader="ML is my game, late game is my game"
+        message="Gofrey is on fire like ashes."
+        buttons={['Action']}
+      ></IonAlert>
+      <IonButton id="open-action-sheet">Open</IonButton>
+      <IonActionSheet
+        trigger="open-action-sheet"
+        header="Actions"
+        buttons={[
+          {
+            text: 'Delete',
+            role: 'destructive',
+            data: {
+              action: 'delete',
+            },
+          },
+          {
+            text: 'Share',
+            data: {
+              action: 'share',
+            },
+          },
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            data: {
+              action: 'cancel',
+            },
+          },
+        ]}
+      ></IonActionSheet>
     </IonCard>
         <ExploreContainer name="" />
       </IonContent>
