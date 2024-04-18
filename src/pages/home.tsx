@@ -1,30 +1,70 @@
+import React from 'react';
 import {
-    //Initial Components
-    IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonIcon,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
 } from '@ionic/react';
+import { pulseOutline, calculatorOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router-dom';
 
-// CSS
-//import './profile.css';
-  
-  const Home: React.FC = () => {
-    return (
-      <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>Home</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Home</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <h1>RAIDEN SHOGUN<br></br>RAITEI NO HIKARI MUTSUTOBOSHI NO MUSASHI KAMINARI NO TEKI</h1>
-        </IonContent>
-      </IonPage>
-    );
+const Home: React.FC = () => {
+  const history = useHistory();
+
+  const goToClickCounter = () => {
+    history.push('/click_counter');
   };
+
+  const goToCalculator = () => {
+    history.push('/calculator');
+  };
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Home</IonTitle>
+        </IonToolbar>
+        <hr />
+      </IonHeader>
+      <IonContent fullscreen className="ion-padding">
+        <div className="ion-text-center"> {/* Centering content */}
+          <IonCard onClick={goToClickCounter} style={{ width: '350px', cursor: 'pointer' }} color="medium">
+            <IonCardContent style={{ fontSize: '30px' }}>
+              <IonIcon icon={pulseOutline} slot="start" />
+              Click Counter
+            </IonCardContent>
+          </IonCard>
   
-  //
-  export default Home;
+  
+          <IonCard onClick={goToCalculator} style={{ width: '350px', cursor: 'pointer' }} color="medium">
+            <IonCardContent style={{ fontSize: '30px' }}>
+              <IonIcon icon={calculatorOutline} slot="start" />
+              Calculator
+            </IonCardContent>
+          </IonCard>
+          
+          <IonCard style={{ width: '350px' }} color="medium">
+            <IonCardContent style={{ fontSize: '30px' }}>
+              Blank
+            </IonCardContent>
+          </IonCard>
+  
+          <IonCard style={{ width: '350px' }} color="medium">
+            <IonCardContent style={{ fontSize: '30px' }}>
+              Blank
+            </IonCardContent>
+          </IonCard>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+  
+};
+
+export default Home;
