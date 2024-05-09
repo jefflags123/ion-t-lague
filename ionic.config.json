@@ -1,0 +1,7 @@
+{
+  "name": "ion-t-lague",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
